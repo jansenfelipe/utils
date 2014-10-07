@@ -4,7 +4,7 @@ namespace JansenFelipe\Utils;
 
 use Illuminate\Support\ServiceProvider;
 
-class CepGratisServiceProvider extends ServiceProvider {
+class UtilsServiceProvider extends ServiceProvider {
 
     /**
      * Indicates if loading of the provider is deferred.

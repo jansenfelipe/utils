@@ -12,14 +12,14 @@ class Utils {
      */
     public function mask($txt, $mascara) {
         if ($mascara == Mask::TELEFONE)
-            $mascara = strlen($txt) == '10' ? '(##)####-####' : '(##)#####-####';
+            $mascara = strlen($txt) == 10 ? '(##)####-####' : '(##)#####-####';
 
         if ($mascara == Mask::DOCUMENTO)
             $mascara = strlen($doc) == 11 ? Mask::CPF : (strlen($doc) == 14 ? Mask::CNPJ : $doc);
 
         if (empty($txt))
             return '';
-        $txt = format_unmask($txt);
+        $txt = $this->unmask($txt);
         $qtd = 0;
         for ($x = 0; $x < strlen($mascara); $x++) {
             if ($mascara[$x] == "#")

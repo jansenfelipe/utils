@@ -25,7 +25,7 @@ Abra seu arquivo `config/app.php` e adicione `'JansenFelipe\Utils\Utils'` ao fin
         'JansenFelipe\Utils\UtilsServiceProvider',
     ),
 
-Adicione também `'CepGratis' => 'JansenFelipe\Utils\Facade'` no final do array `$aliases`
+Adicione também `'Utils' => 'JansenFelipe\Utils\Facade'` no final do array `$aliases`
 
     'aliases' => array(
 
@@ -36,11 +36,13 @@ Adicione também `'CepGratis' => 'JansenFelipe\Utils\Facade'` no final do array 
     ),
 
 Agora basta os métodos
+    
+    use JansenFelipe\Utils\Mask;
 
     $cep = Utils::mask('31030080', Mask::CEP); //Output: 31.030-080
     $documento = Utils::mask('12345678900', Mask::DOCUMENTO); //Output: 123.456.789-00
-    $telefone = Utils::mask('31988710521', Mask::DOCUMENTO); //Output: (31) 98871-0521
-    $telefone = Utils::mask('3188710521', Mask::DOCUMENTO); //Output: (31) 8871-0521
+    $telefone = Utils::mask('31988710521', Mask::DOCUMENTO); //Output: (31)98871-0521
+    $telefone = Utils::mask('3188710521', Mask::DOCUMENTO); //Output: (31)8871-0521
     
     $cep = Utils::unmask('31.030-080'); //Output: 31030080
 
@@ -54,7 +56,10 @@ Adicione o autoload.php do composer no seu arquivo PHP.
 
 Agora basta chamar os métodos utilitários da classe JansenFelipe\Utils\Utils();
 
-    $utils = new JansenFelipe\Utils\Utils();
+    use JansenFelipe\Utils\Utils;
+    use JansenFelipe\Utils\Mask;
+
+    $utils = new Utils();
 
     $cep = $utils->mask('31030080', Mask::CEP); //Output: 31.030-080
     $documento = $utils->mask('12345678900', Mask::DOCUMENTO); //Output: 123.456.789-00
