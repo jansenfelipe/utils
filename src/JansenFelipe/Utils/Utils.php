@@ -15,7 +15,7 @@ class Utils {
             $mascara = strlen($txt) == 10 ? '(##)####-####' : '(##)#####-####';
 
         if ($mascara == Mask::DOCUMENTO)
-            $mascara = strlen($doc) == 11 ? Mask::CPF : (strlen($doc) == 14 ? Mask::CNPJ : $doc);
+            $mascara = strlen($txt) == 11 ? Mask::CPF : (strlen($txt) == 14 ? Mask::CNPJ : $txt);
 
         if (empty($txt))
             return '';
