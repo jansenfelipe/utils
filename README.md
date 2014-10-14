@@ -46,6 +46,10 @@ Agora basta os métodos
     
     $cep = Utils::unmask('31.030-080'); //Output: 31030080
 
+    $boolean = Utils::isCnpj('45543915000181'); //Output: true
+    $boolean = Utils::isCnpj('45.543.915/0001-81'); //Output: true
+    $boolean = Utils::isCnpj('84894484804888'); //Output: false
+
     $string = Utils::unaccents('Êita método bão sô!'); //Output: Eita metodo bao so!
 
 ### (No-Laravel)
@@ -65,5 +69,9 @@ Agora basta chamar os métodos utilitários da classe JansenFelipe\Utils\Utils()
     $telefone = Utils::mask('3188710521', Mask::DOCUMENTO); //Output: (31)8871-0521
     
     $cep = Utils::unmask('31.030-080'); //Output: 31030080
+
+    $boolean = Utils::isCnpj('45543915000181'); //Output: true
+    $boolean = Utils::isCnpj('45.543.915/0001-81'); //Output: true
+    $boolean = Utils::isCnpj('84894484804888'); //Output: false
 
     $string = Utils::unaccents('Êita método bão sô!'); //Output: Eita metodo bao so!
