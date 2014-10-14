@@ -37,7 +37,7 @@ Adicione também `'Utils' => 'JansenFelipe\Utils\Facade'` no final do array `$al
 
 Agora basta os métodos
     
-    use JansenFelipe\Utils\Mask;
+    use JansenFelipe\Utils\Mask as Mask;
 
     $cep = Utils::mask('31030080', Mask::CEP); //Output: 31.030-080
     $documento = Utils::mask('12345678900', Mask::DOCUMENTO); //Output: 123.456.789-00
@@ -56,16 +56,14 @@ Adicione o autoload.php do composer no seu arquivo PHP.
 
 Agora basta chamar os métodos utilitários da classe JansenFelipe\Utils\Utils();
 
-    use JansenFelipe\Utils\Utils;
-    use JansenFelipe\Utils\Mask;
+    use JansenFelipe\Utils\Utils as Utils;
+    use JansenFelipe\Utils\Mask as Mask;
 
-    $utils = new Utils();
-
-    $cep = $utils->mask('31030080', Mask::CEP); //Output: 31.030-080
-    $documento = $utils->mask('12345678900', Mask::DOCUMENTO); //Output: 123.456.789-00
-    $telefone = $utils->mask('31988710521', Mask::DOCUMENTO); //Output: (31) 98871-0521
-    $telefone = $utils->mask('3188710521', Mask::DOCUMENTO); //Output: (31) 8871-0521
+    $cep = Utils::mask('31030080', Mask::CEP); //Output: 31.030-080
+    $documento = Utils::mask('12345678900', Mask::DOCUMENTO); //Output: 123.456.789-00
+    $telefone = Utils::mask('31988710521', Mask::DOCUMENTO); //Output: (31)98871-0521
+    $telefone = Utils::mask('3188710521', Mask::DOCUMENTO); //Output: (31)8871-0521
     
-    $cep = $utils->unmask('31.030-080'); //Output: 31030080
+    $cep = Utils::unmask('31.030-080'); //Output: 31030080
 
-    $string = $utils->unaccents('Êita método bão sô!'); //Output: Eita metodo bao so!
+    $string = Utils::unaccents('Êita método bão sô!'); //Output: Eita metodo bao so!
