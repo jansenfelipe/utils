@@ -1,5 +1,6 @@
 # Utils
 
+[![Travis](https://travis-ci.org/jansenfelipe/utils.svg?branch=1.0)](https://travis-ci.org/jansenfelipe/utils.svg?branch=1.0)
 [![Latest Stable Version](https://poser.pugx.org/jansenfelipe/utils/v/stable.svg)](https://packagist.org/packages/jansenfelipe/utils) [![Total Downloads](https://poser.pugx.org/jansenfelipe/utils/downloads.svg)](https://packagist.org/packages/jansenfelipe/utils) [![Latest Unstable Version](https://poser.pugx.org/jansenfelipe/utils/v/unstable.svg)](https://packagist.org/packages/jansenfelipe/utils) [![License](https://poser.pugx.org/jansenfelipe/utils/license.svg)](https://packagist.org/packages/jansenfelipe/utils)
 
 Uma simples classe utilitária com métodos que podem salvar sua vida (ou não)
