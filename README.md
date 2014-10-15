@@ -9,7 +9,7 @@ Uma simples classe utilitária com métodos que podem salvar sua vida (ou não)
 
 Adicione no seu arquivo `composer.json` o seguinte registro na chave `require`
 
-    "jansenfelipe/utils": "dev-master"
+    "jansenfelipe/utils": "1.0.*@dev"
 
 Execute
 
