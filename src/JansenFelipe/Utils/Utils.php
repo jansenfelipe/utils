@@ -5,9 +5,23 @@ namespace JansenFelipe\Utils;
 class Utils {
 
     /**
+     * Destaca uma palavra em um texto
+     *
+     * @param  string $text (Texto)
+     * @param  string $stringHighlight (Palafra que deseja destacar) 
+     * @return string (Texto com palavra destacada em HTML)
+     */
+    public static function highlighting($text, $stringHighlight) {
+        $value = (string) '<span style="background-color:yellow; color:#000;">' . $stringHighlight . '</span>';
+        $str = str_ireplace($stringHighlight, $value, $text);
+        echo $str;
+    }
+
+    /**
      * Adiciona máscara em um texto
      *
-     * @param  string $texto
+     * @param  string   $txt Texto
+     * @param  Mask     $mascara 
      * @return string (Texto com mascara)
      */
     public static function mask($txt, $mascara) {
