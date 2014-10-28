@@ -28,11 +28,18 @@ class Utils {
         if ($mascara == Mask::TELEFONE)
             $mascara = strlen($txt) == 10 ? '(##)####-####' : '(##)#####-####';
 
-        if ($mascara == Mask::DOCUMENTO)
-            $mascara = strlen($txt) == 11 ? Mask::CPF : (strlen($txt) == 14 ? Mask::CNPJ : $txt);
+        if ($mascara == Mask::DOCUMENTO) {
+            if (strlen($txt) == 11)
+                $mascara = Mask::CPF;
+            elseif (strlen($txt) == 14)
+                $mascara = Mask::CNPJ;
+            else
+                return $txt;
+        }
 
         if (empty($txt))
             return '';
+
         $txt = self::unmask($txt);
         $qtd = 0;
         for ($x = 0; $x < strlen($mascara); $x++) {
@@ -48,6 +55,7 @@ class Utils {
             $string = str_replace(" ", "", $txt);
             for ($i = 0; $i < strlen($string); $i++) {
                 $pos = strpos($mascara, "#");
+
                 $mascara[$pos] = $string[$i];
             }
             return $mascara;
