@@ -163,4 +163,14 @@ class Utils {
         return $valid;
     }
 
+    /**
+     * Metodo para verificar se um Email é válido
+     * 
+     * @param  string $email
+     * @return boolean
+     */
+    public static function isEmail($email) {
+        return (bool) filter_var($email, FILTER_VALIDATE_EMAIL);
+    }
+
 }

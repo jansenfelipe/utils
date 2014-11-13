@@ -42,4 +42,11 @@ class UtilsTest extends PHPUnit_Framework_TestCase {
         
     }
 
+    public function testIsEmail() {
+        $this->assertEquals(true, Utils::isEmail('jansen.felipe@gmail.com'));
+        
+        $this->assertEquals(false, Utils::isEmail('j209f9002'));
+        $this->assertEquals(false, Utils::isEmail('jansen.felipe@'));
+    }
+
 }
