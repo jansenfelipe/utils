@@ -47,6 +47,12 @@ Agora basta chamar os métodos utilitários da classe JansenFelipe\Utils\Utils()
 
     Utils::unaccents('Êita método bão sô!'); //Output: Eita metodo bao so!    
 
+    Utils::isEmail('jansen.felipe@gmail.com'); //Output: true   
+    Utils::isEmail('jansen.felipe@'); //Output: false   
+
+    Utils::moeda(2000) //Output: R$ 2.000,00   
+    Utils::moeda('3500.22', 'US$', 2) //Output: US$ 3.500,22   
+
 ## (Frameworks)
 
 ##### (Laravel)
@@ -68,5 +74,6 @@ Adicione também `'Utils' => 'JansenFelipe\Utils\Facade'` no final do array `$al
         'App'        => 'Illuminate\Support\Facades\App',
         'Artisan'    => 'Illuminate\Support\Facades\Artisan',
         ...
-        'Utils'    => 'JansenFelipe\Utils\Facade',
+        'Utils'             => 'JansenFelipe\Utils\Facade',
+        'Mask'              => 'JansenFelipe\Utils\FacadeMask',
     ),
