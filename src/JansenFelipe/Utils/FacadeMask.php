@@ -1,8 +1,9 @@
 <?php
 
-namespace JansenFelipe\Utils;
-
 use Illuminate\Support\Facades\Facade;
+use JansenFelipe\Utils\Constants;
+
+namespace JansenFelipe\Utils;
 
 class FacadeMask extends Facade implements Constants {
 
