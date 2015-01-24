@@ -173,4 +173,21 @@ class Utils {
         return (bool) filter_var($email, FILTER_VALIDATE_EMAIL);
     }
 
+    /**
+     * Formata valor monetário
+     * 
+     * @param  string $email
+     * @return boolean
+     */
+    public static function moeda($valor = 0, $simbolo = 'R$', $decimal = 2) {
+
+        if (!is_numeric($valor))
+            throw new Exception('$valor nao é um numero válido');
+
+        if (!is_int($decimal))
+            throw new Exception('$decimal nao é um numero inteiro');
+
+        return $simbolo . ' ' . number_format($valor, $decimal, ',', '.');
+    }
+
 }

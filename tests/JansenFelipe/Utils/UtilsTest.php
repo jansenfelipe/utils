@@ -39,14 +39,18 @@ class UtilsTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(true, Utils::isCpf('732.584.423-98'));
 
         $this->assertEquals(false, Utils::isCpf('3234423333'));
-        
     }
 
     public function testIsEmail() {
         $this->assertEquals(true, Utils::isEmail('jansen.felipe@gmail.com'));
-        
+
         $this->assertEquals(false, Utils::isEmail('j209f9002'));
         $this->assertEquals(false, Utils::isEmail('jansen.felipe@'));
+    }
+
+    public function testMoeda() {
+        $this->assertEquals('R$ 2.000,00', Utils::moeda(2000));
+        $this->assertEquals('US$ 3.500,22', Utils::moeda('3500.22', 'US$', 2));
     }
 
 }
