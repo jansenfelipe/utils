@@ -2,6 +2,8 @@
 
 namespace JansenFelipe\Utils;
 
+use Exception;
+
 class Utils {
 
     /**
