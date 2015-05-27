@@ -181,7 +181,9 @@ class Utils {
      * @param  string $email
      * @return boolean
      */
-    public static function moeda($valor = 0, $simbolo = 'R$', $decimal = 2) {
+    public static function moeda($valor, $simbolo = 'R$', $decimal = 2) {
+        if(is_null($valor))
+            $valor = 0;
 
         if (!is_numeric($valor))
             throw new Exception('$valor nao é um numero válido');
