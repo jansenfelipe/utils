@@ -8,7 +8,7 @@ class Utils {
      * Destaca uma palavra em um texto
      *
      * @param  string $text (Texto)
-     * @param  string $stringHighlight (Palafra que deseja destacar) 
+     * @param  string $stringHighlight (Palafra que deseja destacar)
      * @return string (Texto com palavra destacada em HTML)
      */
     public static function highlighting($text, $stringHighlight) {
@@ -21,7 +21,7 @@ class Utils {
      * Adiciona máscara em um texto
      *
      * @param  string   $txt Texto
-     * @param  Mask     $mascara 
+     * @param  Mask     $mascara
      * @return string (Texto com mascara)
      */
     public static function mask($txt, $mascara) {
@@ -75,7 +75,7 @@ class Utils {
 
     /**
      * Metodo para remover acentos de um texto
-     * 
+     *
      * @param  string $str
      * @return string (Texto sem acentos)
      */
@@ -87,7 +87,7 @@ class Utils {
 
     /**
      * Metodo para verificar se um CNPJ é válido
-     * 
+     *
      * @param  string $cnpj
      * @return boolean
      */
@@ -128,7 +128,7 @@ class Utils {
 
     /**
      * Metodo para verificar se um CPF é válido
-     * 
+     *
      * @param  string $cpf
      * @return boolean
      */
@@ -165,7 +165,7 @@ class Utils {
 
     /**
      * Metodo para verificar se um Email é válido
-     * 
+     *
      * @param  string $email
      * @return boolean
      */
@@ -175,7 +175,7 @@ class Utils {
 
     /**
      * Formata valor monetário
-     * 
+     *
      * @param  string $email
      * @return boolean
      */
@@ -188,6 +188,17 @@ class Utils {
             throw new Exception('$decimal nao é um numero inteiro');
 
         return $simbolo . ' ' . number_format($valor, $decimal, ',', '.');
+    }
+
+    /**
+     * Retira formatação de valor monetário
+     *
+     * @param  string $email
+     * @return boolean
+     */
+    public static function unmoeda($string = "", $simbolo = 'R$') {
+        $string = str_replace('.', '', str_replace($simbolo, '', $string));
+        return floatval(str_replace(',', '.', $string));
     }
 
 }

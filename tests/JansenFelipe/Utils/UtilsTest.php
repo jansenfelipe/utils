@@ -53,4 +53,9 @@ class UtilsTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals('US$ 3.500,22', Utils::moeda('3500.22', 'US$', 2));
     }
 
+    public function testUnmoeda() {
+        $this->assertEquals(2000, Utils::unmoeda('R$ 2.000,00'));
+        $this->assertEquals(3500.22, Utils::unmoeda('US$ 3.500,22', 'US$'));
+    }
+
 }
