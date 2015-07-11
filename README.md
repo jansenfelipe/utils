@@ -25,37 +25,37 @@ require_once 'vendor/autoload.php';
 Agora basta chamar os métodos utilitários da classe JansenFelipe\Utils\Utils();
 
 ```php
-    use JansenFelipe\Utils\Utils as Utils;
-    use JansenFelipe\Utils\Mask as Mask;
+use JansenFelipe\Utils\Utils as Utils;
+use JansenFelipe\Utils\Mask as Mask;
 
-    Utils::mask('31030080', Mask::CEP); //Output: 31.030-080
-    
-    Utils::mask('12345678900', Mask::CPF); //Output: 123.456.789-00
-    Utils::mask('12345678901234', Mask::CNPJ); //Output: 12.345.678/9012-34
-    
-    Utils::mask('12345678900', Mask::DOCUMENTO); //Output: 123.456.789-00
-    Utils::mask('12345678901234', Mask::DOCUMENTO); //Output: 12.345.678/9012-34
-    
-    Utils::mask('31988710521', Mask::TELEFONE); //Output: (31)98871-0521
-    Utils::mask('3188710521', Mask::TELEFONE); //Output: (31)8871-0521
-    
-    Utils::unmask('31.030-080'); //Output: 31030080
+Utils::mask('31030080', Mask::CEP); //Output: 31.030-080
 
-    Utils::isCnpj('45543915000181'); //Output: true
-    Utils::isCnpj('45.543.915/0001-81'); //Output: true
-    Utils::isCnpj('84894484804888'); //Output: false
-    
-    Utils::isCpf('51635916658'); //Output: true
-    Utils::isCpf('516.359.166-58'); //Output: true
-    Utils::isCpf('84894484804'); //Output: false
+Utils::mask('12345678900', Mask::CPF); //Output: 123.456.789-00
+Utils::mask('12345678901234', Mask::CNPJ); //Output: 12.345.678/9012-34
 
-    Utils::unaccents('Êita método bão sô!'); //Output: Eita metodo bao so!    
+Utils::mask('12345678900', Mask::DOCUMENTO); //Output: 123.456.789-00
+Utils::mask('12345678901234', Mask::DOCUMENTO); //Output: 12.345.678/9012-34
 
-    Utils::isEmail('jansen.felipe@gmail.com'); //Output: true   
-    Utils::isEmail('jansen.felipe@'); //Output: false   
+Utils::mask('31988710521', Mask::TELEFONE); //Output: (31)98871-0521
+Utils::mask('3188710521', Mask::TELEFONE); //Output: (31)8871-0521
 
-    Utils::moeda(2000) //Output: R$ 2.000,00   
-    Utils::moeda('3500.22', 'US$', 2) //Output: US$ 3.500,22   
+Utils::unmask('31.030-080'); //Output: 31030080
+
+Utils::isCnpj('45543915000181'); //Output: true
+Utils::isCnpj('45.543.915/0001-81'); //Output: true
+Utils::isCnpj('84894484804888'); //Output: false
+
+Utils::isCpf('51635916658'); //Output: true
+Utils::isCpf('516.359.166-58'); //Output: true
+Utils::isCpf('84894484804'); //Output: false
+
+Utils::unaccents('Êita método bão sô!'); //Output: Eita metodo bao so!    
+
+Utils::isEmail('jansen.felipe@gmail.com'); //Output: true   
+Utils::isEmail('jansen.felipe@'); //Output: false   
+
+Utils::moeda(2000) //Output: R$ 2.000,00   
+Utils::moeda('3500.22', 'US$', 2) //Output: US$ 3.500,22   
 ```
 
 
