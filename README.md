@@ -22,11 +22,13 @@ Adicione o autoload.php do composer no seu arquivo PHP.
 require_once 'vendor/autoload.php';  
 ```
 
-Agora basta chamar os métodos utilitários da classe JansenFelipe\Utils\Utils();
+Agora basta chamar os métodos estáticos:
 
 ```php
 use JansenFelipe\Utils\Utils as Utils;
 use JansenFelipe\Utils\Mask as Mask;
+
+Utils::highlighting('Jansen Felipe', 'lipe'); //Jansen Fe<span style="background-color:yellow; color:#000;">lipe</span>
 
 Utils::mask('31030080', Mask::CEP); //Output: 31.030-080
 
@@ -41,6 +43,8 @@ Utils::mask('3188710521', Mask::TELEFONE); //Output: (31)8871-0521
 
 Utils::unmask('31.030-080'); //Output: 31030080
 
+Utils::unaccents('Êita método bão sô!'); //Output: Eita metodo bao so!   
+
 Utils::isCnpj('45543915000181'); //Output: true
 Utils::isCnpj('45.543.915/0001-81'); //Output: true
 Utils::isCnpj('84894484804888'); //Output: false
@@ -48,14 +52,15 @@ Utils::isCnpj('84894484804888'); //Output: false
 Utils::isCpf('51635916658'); //Output: true
 Utils::isCpf('516.359.166-58'); //Output: true
 Utils::isCpf('84894484804'); //Output: false
-
-Utils::unaccents('Êita método bão sô!'); //Output: Eita metodo bao so!    
-
+ 
 Utils::isEmail('jansen.felipe@gmail.com'); //Output: true   
 Utils::isEmail('jansen.felipe@'); //Output: false   
 
 Utils::moeda(2000) //Output: R$ 2.000,00   
 Utils::moeda('3500.22', 'US$', 2) //Output: US$ 3.500,22   
+
+Utils::unmoeda('R$ 2.000,00') //Output: 2000   
+Utils::unmoeda('US$ 3.500,22') //Output: 3500.22
 ```
 
 
