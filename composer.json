@@ -1,7 +1,7 @@
 {
     "name": "jansenfelipe/utils",
     "description": "Uma simples classe utilitária com métodos que podem salvar sua vida (ou não)",
-    "keywords": ["laravel", "util", "php"],
+    "keywords": ["util", "php"],
     "license": "MIT",
     "authors": [
         {
@@ -13,17 +13,16 @@
         "php": ">=5.3.0"
     },
     "require-dev": {
-        "phpunit/phpunit": "~4.0",
-        "phpunit/phpunit-skeleton-generator": "*"
+        "phpunit/phpunit": "~4.0"
     },
     "autoload": {
-        "psr-0": {
-            "JansenFelipe\\Utils": "src/"
+        "psr-4": {
+            "JansenFelipe\\Utils\\": "src/"
         }
     },
     "extra": {
         "branch-alias": {
-            "dev-master": "1.0-dev"
+            "dev-master": "2.0-dev"
         }
     },
     "minimum-stability": "dev"

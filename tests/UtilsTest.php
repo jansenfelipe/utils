@@ -1,8 +1,7 @@
 <?php
 
-namespace JansenFelipe\Utils;
-
-use PHPUnit_Framework_TestCase;
+use JansenFelipe\Utils\Mask;
+use JansenFelipe\Utils\Utils;
 
 class UtilsTest extends PHPUnit_Framework_TestCase {
 
