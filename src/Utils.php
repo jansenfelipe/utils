@@ -52,6 +52,10 @@ class Utils {
         if ($qtd > strlen($txt)) {
             $txt = str_pad($txt, $qtd, "0", STR_PAD_LEFT);
         }
+        elseif ($qtd < strlen($txt)) 
+        {
+            return $txt;
+        }
 
         if ($txt <> '') {
             $string = str_replace(" ", "", $txt);
@@ -72,7 +76,7 @@ class Utils {
      * @return string (Texto sem a mascara)
      */
     public static function unmask($texto) {
-        return preg_replace('/[\-\|\(\)\/\. ]/', '', $texto);
+        return preg_replace('/[\-\|\(\)\/\.\: ]/', '', $texto);
     }
 
     /**
@@ -201,6 +205,27 @@ class Utils {
     public static function unmoeda($string = "", $simbolo = 'R$') {
         $string = str_replace('.', '', str_replace($simbolo, '', $string));
         return floatval(str_replace(',', '.', $string));
+    }
+
+    /**
+     * Metodo para verificar se um Endereço Mac é válido
+     *
+     * @param  string $mac
+     * @return boolean
+     */
+    public static function isMac($mac) {
+        $mac = self::mask(self::unmask($mac), Mask::MAC);
+        return (bool) filter_var($mac, FILTER_VALIDATE_MAC);
+    }
+
+    /**
+     * Metodo para verificar se um Endereço Ip é válido
+     *
+     * @param  string $ip
+     * @return boolean
+     */
+    public static function isIp($ip) {
+        return (bool) filter_var($ip, FILTER_VALIDATE_IP);
     }
 
 }

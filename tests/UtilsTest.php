@@ -16,10 +16,13 @@ class UtilsTest extends PHPUnit_Framework_TestCase {
 
         $this->assertEquals('(31)3072-7066', Utils::mask('3130727066', Mask::TELEFONE));
         $this->assertEquals('(31)99503-7066', Utils::mask('31995037066', Mask::TELEFONE));
+
+        $this->assertEquals('a1:b2:c3:d4:e5:f6', Utils::mask('a1b2c3d4e5f6', Mask::MAC));
     }
 
     public function testUnmask() {
         $this->assertEquals('73258442398', Utils::unmask('732.584.423-98'));
+        $this->assertEquals('a1b2c3d4e5f6', Utils::unmask('a1:b2:c3:d4:e5:f6'));
     }
 
     public function testUnaccents() {
@@ -55,6 +58,19 @@ class UtilsTest extends PHPUnit_Framework_TestCase {
     public function testUnmoeda() {
         $this->assertEquals(2000, Utils::unmoeda('R$ 2.000,00'));
         $this->assertEquals(3500.22, Utils::unmoeda('US$ 3.500,22', 'US$'));
+    }
+
+    public function testIsMac() {
+        $this->assertEquals(true, Utils::isMac('a1:b2:c3:d4:e5:f6'));
+        $this->assertEquals(true, Utils::isMac('a1b2c3d4e5f6'));
+        $this->assertEquals(true, Utils::isMac('a1-b2-c3-d4-e5-f6'));
+        $this->assertEquals(false, Utils::isMac('a1b2c3d4e5f6g7'));
+    }
+
+    public function testIsIp() {
+        $this->assertEquals(false, Utils::isIp('127.0.0'));
+        $this->assertEquals(true,  Utils::isIp('127.0.0.1'));
+        $this->assertEquals(true,  Utils::isIp('192.168.0.255'));
     }
 
 }
