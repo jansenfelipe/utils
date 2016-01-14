@@ -101,6 +101,9 @@ class Utils {
         $valid = true;
         $cnpj = str_pad(self::unmask($cnpj), 14, '0', STR_PAD_LEFT);
 
+	if(!ctype_digit($cnpj))
+            return false;
+
         for ($x = 0; $x < 10; $x++) {
             if ($cnpj == str_repeat($x, 14)) {
                 $valid = false;
@@ -141,6 +144,9 @@ class Utils {
     public static function isCpf($cpf) {
         $valid = true;
         $cpf = str_pad(self::unmask($cpf), 11, '0', STR_PAD_LEFT);
+
+	if(!ctype_digit($cpf))
+            return false;
 
         for ($x = 0; $x < 10; $x ++) {
             if ($cpf == str_repeat($x, 11)) {
