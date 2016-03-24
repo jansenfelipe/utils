@@ -70,6 +70,11 @@ Utils::isMac('a1:b2:c3:d4:e5:f6') // Output: true
 Utils::isIp('127.0.0') // Output: false
 Utils::isIp('127.0.0.1') // Output: true
 Utils::isIp('192.168.0.255') // Output: true
+
+Utils::normatizeName('JosÉ dos SANTOS E silva', 'de,do,da,e,dos')  // Output: José dos Santos e Silva
+Utils::normatizeName('JOSÉ DE OLIVEIRA E SILVA', 'de,do,da,e,dos') // Output: José de Oliveira e Silva
+
+
 ```
 
 

@@ -73,4 +73,11 @@ class UtilsTest extends PHPUnit_Framework_TestCase {
         $this->assertEquals(true,  Utils::isIp('192.168.0.255'));
     }
 
+    public function testNormatizeName(){
+        $escape = 'de,do,da,e,dos';
+        $this->assertEquals('João da Silva', Utils::normatizeName('joão da silva', $escape));
+        $this->assertEquals('José dos Santos e Silva', Utils::normatizeName('JosÉ dos SANTOS E silva', $escape));
+        $this->assertEquals('José de Oliveira e Silva', Utils::normatizeName('JOSÉ DE OLIVEIRA E SILVA', $escape));
+    }
+
 }

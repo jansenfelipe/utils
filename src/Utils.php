@@ -188,7 +188,7 @@ class Utils {
     /**
      * Formata valor monetário
      *
-     * @param  string $email
+     * @param  float $valor, string $simbolo, int $decimal
      * @return boolean
      */
     public static function moeda($valor = 0, $simbolo = 'R$', $decimal = 2) {
@@ -205,7 +205,7 @@ class Utils {
     /**
      * Retira formatação de valor monetário
      *
-     * @param  string $email
+     * @param  string $string, string $simbolo
      * @return boolean
      */
     public static function unmoeda($string = "", $simbolo = 'R$') {
@@ -234,4 +234,26 @@ class Utils {
         return (bool) filter_var($ip, FILTER_VALIDATE_IP);
     }
 
+    /**
+    * Metodo para normalizar nomes deixando a primeira maiúscula escapando palavras
+    * @param string $string, string $escape
+    * @return string
+    */
+    public static function normatizeName($string,$escape = ''){
+    	if(empty($string)){
+    		return false;
+    	}
+		$string = mb_strtolower($string,'UTF-8');
+		$value = explode(' ',$string);
+		$keywords = isset($escape) ? explode(',',$escape) : [];
+		foreach($value as $key => $val)
+		{
+			if(!in_array($val,$keywords)){
+				$return[$key] = ucfirst($val);
+			}else{
+				$return[$key] = $val;	
+			}
+		}
+		return implode(' ',$return);
+    }
 }
