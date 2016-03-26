@@ -70,6 +70,11 @@ Utils::isMac('a1:b2:c3:d4:e5:f6') // Output: true
 Utils::isIp('127.0.0') // Output: false
 Utils::isIp('127.0.0.1') // Output: true
 Utils::isIp('192.168.0.255') // Output: true
+
+Utils::mostrarData('26/03/2016', 'en', '-') // Output: 2016-03-26
+Utils::mostrarData('26/03/2016', 'en', '/') // Output: 2016/03/26
+Utils::mostrarData('2016/03/26', 'br', '-') // Output: 26-03-2016
+Utils::mostrarData('2016/03/26', 'br', '/') // Output: 26/03/2016
 ```
 
 
