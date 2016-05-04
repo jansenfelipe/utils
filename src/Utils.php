@@ -10,7 +10,7 @@ class Utils {
      * Destaca uma palavra em um texto
      *
      * @param  string $text (Texto)
-     * @param  string $stringHighlight (Palafra que deseja destacar)
+     * @param  string $stringHighlight (Palavra que deseja destacar)
      * @return string (Texto com palavra destacada em HTML)
      */
     public static function highlighting($text, $stringHighlight) {
@@ -188,16 +188,19 @@ class Utils {
     /**
      * Formata valor monetário
      *
-     * @param  float $valor, string $simbolo, int $decimal
-     * @return boolean
+     * @param  float $valor Valor monetário
+     * @param  string $simbolo Símbolo monetário colocado a esquerda
+     * @param  int $decimal Quantidade de casas decimais
+     * @return string Valor formatado
+     * @throws Exception
      */
     public static function moeda($valor = 0, $simbolo = 'R$', $decimal = 2) {
 
         if (!is_numeric($valor))
-            throw new Exception('$valor nao é um numero válido');
+            throw new Exception('$valor não é um numero válido');
 
         if (!is_int($decimal))
-            throw new Exception('$decimal nao é um numero inteiro');
+            throw new Exception('$decimal não é um numero inteiro');
 
         return $simbolo . ' ' . number_format($valor, $decimal, ',', '.');
     }
@@ -205,8 +208,9 @@ class Utils {
     /**
      * Retira formatação de valor monetário
      *
-     * @param  string $string, string $simbolo
-     * @return boolean
+     * @param  string $string Valor monetário formatado
+     * @param  string $simbolo Simbolo monetário
+     * @return float
      */
     public static function unmoeda($string = "", $simbolo = 'R$') {
         $string = str_replace('.', '', str_replace($simbolo, '', $string));
