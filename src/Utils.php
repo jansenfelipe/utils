@@ -228,4 +228,17 @@ class Utils {
         return (bool) filter_var($ip, FILTER_VALIDATE_IP);
     }
 
+    /**
+     * Metodo para exibir o tamanho do arquivo
+     * @param int $bytes
+     * @param int $decimals
+     * @return string
+     */
+    function humanFileSize($bytes, $decimals = 2) {
+
+        $size = array('B','kB','MB','GB','TB','PB','EB','ZB','YB');
+        $factor = floor((strlen($bytes) - 1) / 3);
+
+        return sprintf("%.{$decimals}f", $bytes / pow(1024, $factor)) . @$size[$factor];
+    }
 }
