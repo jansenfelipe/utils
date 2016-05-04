@@ -70,6 +70,11 @@ Utils::isMac('a1:b2:c3:d4:e5:f6') // Output: true
 Utils::isIp('127.0.0') // Output: false
 Utils::isIp('127.0.0.1') // Output: true
 Utils::isIp('192.168.0.255') // Output: true
+
+Utils::humanFileSize(8763432); // Output: 8.35 MB
+Utils::humanFileSize(258); // Output: 258 B
+Utils::humanFileSize( filesize('/path/to/some/file'); // will echo out the file size of that file
+
 ```
 
 
