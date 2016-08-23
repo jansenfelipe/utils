@@ -223,9 +223,13 @@ class Utils {
      * @param  string $mac
      * @return boolean
      */
-    public static function isMac($mac) {
-        $mac = self::mask(self::unmask($mac), Mask::MAC);
-        return (bool) filter_var($mac, FILTER_VALIDATE_MAC);
+    public static function isMac($mac) 
+    {
+        $mac = self::unmask($mac);
+
+        if(strlen($mac) != 12) return false;
+
+        return (preg_match('/([a-fA-F0-9]{2}[:|\-]?){6}/', $mac) == 1);
     }
 
     /**
