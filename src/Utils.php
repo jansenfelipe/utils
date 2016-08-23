@@ -101,7 +101,7 @@ class Utils {
         $valid = true;
         $cnpj = str_pad(self::unmask($cnpj), 14, '0', STR_PAD_LEFT);
 
-	if(!ctype_digit($cnpj))
+    if(!ctype_digit($cnpj))
             return false;
 
         for ($x = 0; $x < 10; $x++) {
@@ -145,7 +145,7 @@ class Utils {
         $valid = true;
         $cpf = str_pad(self::unmask($cpf), 11, '0', STR_PAD_LEFT);
 
-	if(!ctype_digit($cpf))
+    if(!ctype_digit($cpf))
             return false;
 
         for ($x = 0; $x < 10; $x ++) {
@@ -244,20 +244,20 @@ class Utils {
     * @return string
     */
     public static function normatizeName($string,$escape = ''){
-    	if(empty($string)){
-    		return false;
-    	}
-		$string = mb_strtolower($string,'UTF-8');
-		$value = explode(' ',$string);
-		$keywords = isset($escape) ? explode(',',$escape) : [];
-		foreach($value as $key => $val)
-		{
-			if(!in_array($val,$keywords)){
-				$return[$key] = ucfirst($val);
-			}else{
-				$return[$key] = $val;	
-			}
-		}
-		return implode(' ',$return);
+        if(empty($string)){
+            return false;
+        }
+        $string = mb_strtolower($string,'UTF-8');
+        $value = explode(' ',$string);
+        $keywords = isset($escape) ? explode(',',$escape) : array();
+        foreach($value as $key => $val)
+        {
+            if(!in_array($val,$keywords)){
+                $return[$key] = ucfirst($val);
+            }else{
+                $return[$key] = $val;   
+            }
+        }
+        return implode(' ',$return);
     }
 }
