@@ -74,7 +74,7 @@ Utils::isIp('192.168.0.255') // Output: true
 Utils::normatizeName('JosÉ dos SANTOS E silva', 'de,do,da,e,dos')  // Output: José dos Santos e Silva
 Utils::normatizeName('JOSÉ DE OLIVEIRA E SILVA', 'de,do,da,e,dos') // Output: José de Oliveira e Silva
 
-
+Utils::formatDate('2018-05-31', 'Y-m-d', 'd/m/Y') //Output: 31/05/2018
 ```
 
 
