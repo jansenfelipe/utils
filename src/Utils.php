@@ -283,7 +283,7 @@ class Utils
      * @param $formatOut
      * @return string
      */
-    public static function formatDate($date,$formatIn,$formatOut)
+    public static function formatDate($date, $formatIn, $formatOut)
     {
         return \DateTime::createFromFormat($formatIn, $date)->format($formatOut);
     }
