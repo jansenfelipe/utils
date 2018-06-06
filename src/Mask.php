@@ -9,5 +9,6 @@ abstract class Mask{
     const CPF = '###.###.###-##';
     const CNPJ = '##.###.###/####-##';
     const CEP = '##.###-###';
+    const MAC = '##:##:##:##:##:##';
 
 }

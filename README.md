@@ -41,6 +41,8 @@ Utils::mask('12345678901234', Mask::DOCUMENTO); //Output: 12.345.678/9012-34
 Utils::mask('31988710521', Mask::TELEFONE); //Output: (31)98871-0521
 Utils::mask('3188710521', Mask::TELEFONE); //Output: (31)8871-0521
 
+Utils::mask('a1b2c3d4e5f6', Mask::MAC); //Output: a1:b2:c3:d4:e5:f6
+
 Utils::unmask('31.030-080'); //Output: 31030080
 
 Utils::unaccents('Êita método bão sô!'); //Output: Eita metodo bao so!   
@@ -61,6 +63,18 @@ Utils::moeda('3500.22', 'US$', 2) //Output: US$ 3.500,22
 
 Utils::unmoeda('R$ 2.000,00') //Output: 2000   
 Utils::unmoeda('US$ 3.500,22') //Output: 3500.22
+
+Utils::isMac('a1b2c3d4e5f6') // Output: true
+Utils::isMac('a1:b2:c3:d4:e5:f6') // Output: true
+
+Utils::isIp('127.0.0') // Output: false
+Utils::isIp('127.0.0.1') // Output: true
+Utils::isIp('192.168.0.255') // Output: true
+
+Utils::normatizeName('JosÉ dos SANTOS E silva', 'de,do,da,e,dos')  // Output: José dos Santos e Silva
+Utils::normatizeName('JOSÉ DE OLIVEIRA E SILVA', 'de,do,da,e,dos') // Output: José de Oliveira e Silva
+
+
 ```
 
 

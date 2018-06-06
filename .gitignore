@@ -1,6 +1,7 @@
 /vendor
 composer.phar
-composer.lock
 .DS_Store
 nbproject/
 /phpunit.xml
+.idea
+composer.lock
