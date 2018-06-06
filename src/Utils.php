@@ -6,7 +6,6 @@ use Exception;
 
 class Utils
 {
-
     /**
      * Destaca uma palavra em um texto
      *
@@ -222,6 +221,9 @@ class Utils
     public static function unmoeda($string = "", $simbolo = 'R$')
     {
         $string = str_replace('.', '', str_replace($simbolo, '', $string));
+
+        $string = trim($string,chr(0xC2).chr(0xA0));
+
         return floatval(str_replace(',', '.', $string));
     }
 
@@ -281,7 +283,7 @@ class Utils
      * @param $formatOut
      * @return string
      */
-    public static function formatDate($date,$formatIn,$formatOut)
+    public static function formatDate($date, $formatIn, $formatOut)
     {
         return \DateTime::createFromFormat($formatIn, $date)->format($formatOut);
     }
