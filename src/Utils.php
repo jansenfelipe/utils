@@ -275,15 +275,15 @@ class Utils
             return false;
         }
 
-        $string = mb_strtolower($string, 'UTF-8');
-        $value = explode(' ', $string);
-        $keywords = isset($escape) ? explode(',', $escape) : array();
+        $string = mb_strtolower($string,'UTF-8');
+        $value = explode(' ',$string);
+        $keywords = isset($escape) ? explode(',',$escape) : array();
 
-        foreach ($value as $key => $val) {
-            if ( ! in_array($val, $keywords) ) {
-                $return[$key] = ucfirst($val);
+	    foreach($value as $key => $val) {
+            if ( !in_array($val,$keywords) ) {
+                $return[$key] = mb_convert_case($val,  MB_CASE_TITLE);
             } else {
-                $return[$key] = $val;
+                $return[$key] = $val;   
             }
         }
 
